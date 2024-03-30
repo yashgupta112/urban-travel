@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Travel</title>
+  <link rel="shortcut icon" href="./images/logo-icon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/7b424efafb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand h1 mb-0" href="#">
+        <img src="./images/logo-icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Urban Travel
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">Book</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Packages
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">United State</a></li>
+              <li><a class="dropdown-item" href="#">India</a></li>
+              <li><a class="dropdown-item" href="#">France</a></li>
+              <li><a class="dropdown-item" href="#">Germany</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#Services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#Gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#About">About</a>
+          </li>
+
+        </ul>
+        <button class="btn btn-outline-primary me-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+      </div>
+    </div>
+  </nav>
+  <div class="bg d-flex flex-column">
+    <div class="text-light p-5  m-auto  rounded-3 text-center">
+      <h1 class="heading">Welcome to Urban Travel.</h2>
+        <h2 class="heading-large">Visit <span id="changeText">.</span>
+      </h1>
+      <button class="btn btn-lg btn-primary mt-4">Book Now</button>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col">
+      <img src="./images/section1.png" alt="" class="w-100 h-100">
+    </div>
+    <div class="col p-5">
+      <form class="needs-validation pe-5 ps-5" action="" novalidate onsubmit="return formSubmit(event, this);">
+        <div class="form-group mb-3">
+          <label for="where">Where to</label>
+          <select class="form-control" id="where" name="where" required placeholder="Select a destination...">
+            <option disabled>Select a destination...</option>
+            <option>France</option>
+            <option>India</option>
+            <option>Dubai</option>
+            <option>London</option>
+            <option>Sydney</option>
+            <option>Barcelona</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid destination.
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="persons">How Many Person</label>
+          <input type="number" class="form-control" id="persons" name="persons" required>
+          <div class="invalid-feedback">
+            Please input a valid number.
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="startDate">Start Date</label>
+          <input type="date" class="form-control" id="startDate" name="startDate" required>
+          <div class="invalid-feedback">
+            Please select a valid future date.
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="endDate">End Date</label>
+          <input type="date" class="form-control" id="endDate" name="endDate" required>
+          <div class="invalid-feedback">
+            Please select a valid date (greater than start date).
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" name="description" rows="3" minlength="5" maxlength="500"
+            required></textarea>
+          <div class="invalid-feedback">
+            Please input valid description (5-500 characters).
+          </div>
+        </div>
+        <div class="d-flex">
+          <button type="submit" class="btn btn-primary m-auto btn-lg">Book Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="bg-body-secondary">
+    <div class="container p-4">
+      <h2 class="text-center pt-2 pb-3 playfair-display-600">Packages</h2>
+      <div class="row">
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package1.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">France</h5>
+              <p class="card-text">France, in Western Europe, encompasses medieval cities, and Mediterranean beaches.
+                Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and
+                monuments like the Eiffel Tower. It is also renowned for its wines and sophisticated cuisine.</p>
+              <p class="price">$1800</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package2.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Dubai</h5>
+              <p class="card-text">Dubai is a city and emirate in the United Arab Emirates known for luxury shopping,
+                ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the
+                skyscraper-filled skyline. At its foot lies Dubai Fountain, with jets and lights choreographed to music.
+              </p>
+              <p class="price">$1500</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package3.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">London</h5>
+              <p class="card-text">London, the capital of England and the United Kingdom, is a 21st-century city with
+                history stretching back to Roman times. At its centre stand the imposing Houses of Parliament, the
+                iconic ‘Big Ben’ clock tower and Westminster Abbey, site of British monarch coronations.</p>
+              <p class="price">$2200</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package4.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">India</h5>
+              <p class="card-text">India is known for its rich cultural heritage, diverse geography, and historical
+                landmarks, which attract tourists from all over the world. Additionally, India is home to several UNESCO
+                World Heritage sites, exotic wildlife, and adventure tourism. Few includes Taj Mahal, Lake Pichola,
+                India Gate and many more.</p>
+              <p class="price">$1400</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package5.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Rome</h5>
+              <p class="card-text">With its unparalleled history, Rome is the third most visited city in Europe and the
+                fourteenth worldwide. It attracts visitors from all over the world who are impatient to discover the
+                city's impressive monuments and archaeological sites; not to mention its renowned cuisine and its lively
+                atmosphere.</p>
+              <p class="price">$1600</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package6.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Barcelona</h5>
+              <p class="card-text">Barcelona, the cosmopolitan capital of Spain’s Catalonia region, is known for its art
+                and architecture. The fantastical Sagrada Família church and other modernist landmarks designed by
+                Antoni Gaudí dot the city. Museu Picasso and Fundació Joan Miró feature modern art by their namesakes.
+              </p>
+              <p class="price">$1400</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package7.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Sydney</h5>
+              <p class="card-text">Sydney, capital of New South Wales and one of Australia's largest cities, is best
+                known for its harbourfront Sydney Opera House. Massive Darling Harbour and the smaller Circular Quay
+                port are hubs of waterside life, with the arched Harbour Bridge and esteemed Royal Botanic Garden
+                nearby.</p>
+              <p class="price">$1900</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package8.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Tahiti</h5>
+              <p class="card-text">Tahiti is the largest island in French Polynesia, the South Pacific archipelago.
+                Shaped like a figure-8, it's divided into Tahiti Nui (the larger, western section) and Tahiti Iti (the
+                eastern peninsula). With black-sand beaches, lagoons, waterfalls and 2 extinct volcanoes, it's a popular
+                vacation destination. </p>
+              <p class="price">$1800</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <img src="./images/package9.jpg" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">Maldives</h5>
+              <p class="card-text">What are the Maldives most famous for?
+                With its stunning islands, mesmerizing beaches, and turquoise waters, Maldives is famous for its
+                exciting water activities. If you are an adventure enthusiast, the variety of water sports will make you
+                want to stay here forever.</p>
+              <p class="price">$1300</p>
+              <div class="star">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <button class="btn btn-primary">Book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="pb-4" id="Services">
+    <div class="container p-4">
+      <h2 class="text-center pt-2 pb-3 playfair-display-600">Services</h2>
+      <div class="row ps-5 pe-5 d-flex">
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-hotel"></i></div>
+              <div class="col-8">
+                <h4>Affordable Hotel</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-utensils"></i></div>
+              <div class="col-8">
+                <h4>Food & Drinks</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-plane-departure"></i></div>
+              <div class="col-8">
+                <h4>Cheap Flights</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-hand-holding-heart"></i></div>
+              <div class="col-8">
+                <h4>Safety Guide</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-taxi"></i></div>
+              <div class="col-8">
+                <h4>Airport Transfer</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 m-auto me-4">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-4"><i class="fa fa-solid fa-people-group"></i></div>
+              <div class="col-8">
+                <h4>Corporate Packages</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="Gallery">
+    <div class="container p-4">
+      <h2 class="text-center pt-2 pb-3 playfair-display-600">Gallery</h2>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+          <div class="img-wrapper mb-4">
+
+            <img src="images/gallery1.webp" class="shadow-1-strong rounded " alt="Boat on Calm Water" />
+            <div class="after">
+              <h5>Scenic Wonders</h5>
+            </div>
+
+          </div>
+
+          <div class="img-wrapper mb-4">
+
+            <img src="images/gallery2.jpg" style="aspect-ratio: auto 2/3;" class="shadow-1-strong rounded "
+              alt="Cultural Immersion" />
+            <div class="after">
+              <h5>Cultural Immersion</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="img-wrapper mb-4">
+            <img src="images/gallery3.webp" style="aspect-ratio: auto 2/3;" class="shadow-1-strong rounded "
+              alt="Mountains in the Clouds" />
+            <div class="after">
+              <h5>Places Unexplored</h5>
+            </div>
+          </div>
+
+          <div class="img-wrapper mb-4">
+            <img src="images/gallery4.jpg" class="shadow-1-strong rounded " alt="Culinary Delights" />
+            <div class="after">
+              <h5>Culinary Delights</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="img-wrapper mb-4">
+            <img src="images/gallery5" style="aspect-ratio: auto 2/3;" class="shadow-1-strong rounded "
+              alt="National Park of Africa" />
+            <div class="after">
+              <h5>Wildlife Encounters</h5>
+            </div>
+          </div>
+          <div class="img-wrapper mb-4">
+            <img src="images/gallery6.webp" class="shadow-1-strong rounded" alt="Yosemite National Park" />
+            <div class="after">
+              <h5>Lodging & Campings</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="About" class="bg-body-secondary pb-4">
+    <div class="container p-4">
+      <h2 class="text-center pt-2 pb-3 playfair-display-600">About Us</h2>
+      <div class="row ">
+        <div class="col d-flex flex-column">
+          <img src="./images/about-us.png" alt="" class="w-100 h-100">
+        </div>
+        <div class="col ps-5 pt-2">
+          <div class="d-flex m-auto">
+            <img src="./images/logo-icon.png" alt="logo" width="78px" class="d-inline-block align-text-top">
+            <div class="h1 m-auto ms-2">Urban Travel </div>
+          </div>
+          <hr>
+          <h5>Company Information:</h5>
+          <p>
+            Urban Travel is a leading tour and travel agency specializing in crafting personalized itineraries for
+            discerning travelers worldwide. Established in 2010, we're dedicated to delivering exceptional service and
+            unforgettable experiences.
+          </p>
+          <hr>
+          <h5>Our Mission:</h5>
+          <p>
+            At Urban Travel, our mission is to inspire and connect travelers through transformative journeys that foster
+            understanding and create lasting memories. We strive to provide unparalleled expertise, personalized
+            service, and unforgettable adventures.
+          </p>
+          <hr>
+          <h5>Why Choose Urban Travel?</h5>
+          <p>
+            Experience the world with confidence, knowing that Urban Travel combines insider knowledge, personalized
+            service, and exceptional value to create seamless, unforgettable journeys tailored to your unique
+            preferences and interests.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="Footer">
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center pt-3 pb-2 border-top">
+      <div class="d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <img src="images/logo-black.png" width="54px" alt="Urban Travel">
+        </a>
+        <span class="text-muted">© 2024 Urban Travel, Inc. All rights reserved.</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-brands fa-twitter"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-brands fa-instagram"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-brands fa-facebook"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-brands fa-whatsapp"></i></a></li>
+      </ul>
+    </footer>
+  </div>
+  <div class="modal" tabindex="-1" id="loginModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate onsubmit="return loginSubmit(event, this);">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+              <div class="invalid-feedback">
+                Please enter valid email id.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+              <div class="invalid-feedback">
+                Please enter valid password (at least 8 characters).
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex m-auto">Submit</button>
+            <p class="text-center mt-3">
+              Don't have an account?
+              <a class="" data-bs-toggle="modal" data-bs-target="#registerModal"> Register Now.</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" id="registerModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register Now</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate onsubmit="return registerSubmit(event, this);">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+              <div class="invalid-feedback">
+                Please enter full name.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="contact" class="form-label">Contact</label>
+              <input type="number" class="form-control" id="contact" name="contact" min="1000000000" max="9999999999" required>
+              <div class="invalid-feedback">
+                Please enter valid 10 digit contact number.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input type="date" class="form-control" id="dob" name="dob" required>
+              <div class="invalid-feedback">
+                Please enter valid past date.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="registerEmail" required>
+              <div class="invalid-feedback">
+                Please enter valid email id.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="registerPassword" name="password" required>
+              <div class="invalid-feedback">
+                Please enter valid password (at least 8 characters).
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <select class="form-select" id="gender" name="gender" required>
+                <option selected disabled>Select an option</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select the gender.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex m-auto">Register</button>
+            <p class="text-center mt-3">
+              Already have an account?
+              <a class="" data-bs-toggle="modal" data-bs-target="#loginModal">Login now</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/7b424efafb.js" crossorigin="anonymous"></script>
+  <script>
+    function formSubmit(e, form) {
+      e.preventDefault();
+      console.log(e, form);
+      const startDate = $('#startDate');
+      const endDate = $('#endDate');
+      startDate.on('change', () => {
+        if (validateFutureDate(startDate.val())) {
+          startDate.removeClass('is-invalid');
+          startDate.addClass('is-valid');
+          startDate[0].setCustomValidity("")
+        } else {
+          startDate.removeClass('is-valid');
+          startDate.addClass('is-invalid');
+          startDate[0].setCustomValidity("error")
+        }
+      })
+      endDate.on('change', () => {
+        if (validateFutureDate(endDate.val(), startDate.val())) {
+          endDate.removeClass('is-invalid');
+          endDate.addClass('is-valid');
+          endDate[0].setCustomValidity("")
+        } else {
+          endDate.removeClass('is-valid');
+          endDate.addClass('is-invalid');
+          endDate[0].setCustomValidity("error")
+        }
+      })
+
+      startDate.addClass(validateFutureDate(startDate.val()) ? startDate[0].setCustomValidity("") && 'is-valid' : startDate[0].setCustomValidity("error") && 'is-invalid');
+      endDate.addClass(validateFutureDate(endDate.val(), startDate.val()) ? endDate[0].setCustomValidity("") && 'is-valid' : endDate[0].setCustomValidity("error") && 'is-invalid');
+      form.classList.add('was-validated');
+      if (form.checkValidity()) {
+        alert("Booking Successful.")
+      }
+
+    }
+    function registerSubmit(e, form) {
+      e.preventDefault();
+      console.log(e, form);
+      const dobDate = $('#dob');
+      const name = $('#name');
+      const password = $('#registerPassword');
+      const gender = $('#gender');
+
+      dobDate.on('change', () => {
+        if (validatePastDate(dobDate.val())) {
+          dobDate.removeClass('is-invalid');
+          dobDate.addClass('is-valid');
+          dobDate[0].setCustomValidity("")
+        } else {
+          dobDate.removeClass('is-valid');
+          dobDate.addClass('is-invalid');
+          dobDate[0].setCustomValidity("error")
+        }
+      })
+      password.on('change', () => {
+        if (password.val().length >= 8) {
+          password.removeClass('is-invalid');
+          password.addClass('is-valid');
+          password[0].setCustomValidity("")
+        } else {
+          password.removeClass('is-valid');
+          password.addClass('is-invalid');
+          password[0].setCustomValidity("error")
+        }
+      })
+      gender.on('change', () => {
+        if (['male', 'female'].includes(gender.val())) {
+          gender.removeClass('is-invalid');
+          gender.addClass('is-valid');
+          gender[0].setCustomValidity("")
+        } else {
+          gender.removeClass('is-valid');
+          gender.addClass('is-invalid');
+          gender[0].setCustomValidity("error")
+        }
+      })
+      name.on('change', () => {
+        if (/^[a-zA-Z]+ [a-zA-Z]+$/.test(name.val())) {
+          name.removeClass('is-invalid');
+          name.addClass('is-valid');
+          name[0].setCustomValidity("")
+        } else {
+          name.removeClass('is-valid');
+          name.addClass('is-invalid');
+          name[0].setCustomValidity("error")
+        }
+      })
+
+      dobDate.addClass(validatePastDate(dobDate.val()) ? dobDate[0].setCustomValidity("") && 'is-valid' : dobDate[0].setCustomValidity("error") && 'is-invalid');
+      password.addClass(password.val().length >= 8 ? password[0].setCustomValidity("") && 'is-valid' : password[0].setCustomValidity("error") && 'is-invalid');
+      gender.addClass(['male', 'female'].includes(gender.val()) ? gender[0].setCustomValidity("") && 'is-valid' : gender[0].setCustomValidity("error") && 'is-invalid');
+      name.addClass(/^[a-zA-Z]+ [a-zA-Z]+$/.test(name.val()) ? name[0].setCustomValidity("") && 'is-valid' : name[0].setCustomValidity("error") && 'is-invalid');
+
+      form.classList.add('was-validated');
+      if (form.checkValidity()) {
+        alert("Registartion Successful.")
+        $('#registerModal').modal('hide');
+        form.reset();
+        form.classList.remove('was-validated');
+
+      }
+    }
+
+    function loginSubmit(e, form) {
+      e.preventDefault();
+      console.log(e, form);
+      const password = $('#loginPassword');
+      password.on('change', () => {
+        if (password.val().length >= 8) {
+          password.removeClass('is-invalid');
+          password.addClass('is-valid');
+          password[0].setCustomValidity("")
+        } else {
+          password.removeClass('is-valid');
+          password.addClass('is-invalid');
+          password[0].setCustomValidity("error")
+        }
+      })
+      password.addClass(password.val().length >= 8 ? password[0].setCustomValidity("") && 'is-valid' : password[0].setCustomValidity("error") && 'is-invalid');
+      form.classList.add('was-validated');
+      if (form.checkValidity()) {
+        alert("Login Successful.")
+        $('#loginModal').modal('hide');
+        form.reset();
+        form.classList.remove('was-validated');
+
+      }
+    }
+
+    function validateFutureDate(date, prevDate = undefined) {
+      const futureDate = new Date(date);
+      const pastDate = prevDate ? new Date(prevDate) : new Date();
+      return futureDate > pastDate;
+    }
+    function validatePastDate(date) {
+      const pastDate = new Date(date);
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+      return pastDate < now;
+    }
+  </script>
+</body>
+
+</html>
