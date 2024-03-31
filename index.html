@@ -709,6 +709,10 @@
         alert("Registartion Successful.")
         $('#registerModal').modal('hide');
         form.reset();
+        dobDate.removeClass('is-valid');
+        name.removeClass('is-valid');
+        password.removeClass('is-valid');
+        gender.removeClass('is-valid');
         form.classList.remove('was-validated');
 
       }
@@ -717,6 +721,7 @@
     function loginSubmit(e, form) {
       e.preventDefault();
       console.log(e, form);
+      const email = $('#loginEmail');
       const password = $('#loginPassword');
       password.on('change', () => {
         if (password.val().length >= 8) {
@@ -732,10 +737,17 @@
       password.addClass(password.val().length >= 8 ? password[0].setCustomValidity("") && 'is-valid' : password[0].setCustomValidity("error") && 'is-invalid');
       form.classList.add('was-validated');
       if (form.checkValidity()) {
-        alert("Login Successful.")
-        $('#loginModal').modal('hide');
-        form.reset();
-        form.classList.remove('was-validated');
+        // Check id and password
+        if(email.val() === "mca@project.com" && password.val() === "password") {
+          alert("Login Successful.")
+          $('#loginModal').modal('hide');
+          form.reset();
+          password.removeClass('is-valid');
+          form.classList.remove('was-validated');
+        }
+        else {
+          alert("Login failed. Try again!")
+        }
 
       }
     }
